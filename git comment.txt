@@ -1,0 +1,206 @@
+git clone git@github.com:AnkorTn/sjtu-cs7354.git
+cd sjtu-cs7354
+
+git checkout -b feature-newFunc
+git add mydiary/diary.txt
+git commit -m "Added diary entry for feature work"
+git add mydiary/diary.txt
+git commit -m "Added another diary entry for feature work"
+git rebase -i HEAD~2
+git push --set-upstream origin feature-newFunc
+git checkout main
+git merge feature-newFunc
+
+
+
+
+
+
+
+
+git checkout -b experiment origin/experiment
+git checkout main
+git cherry-pick d58314c014e17c0f8091e4f715836e14815e443d
+git push
+
+
+
+
+
+
+
+
+git checkout -b dev origin/dev
+git log
+git revert HEAD^^..HEAD
+git push
+
+
+
+
+
+
+
+
+git checkout main
+git add frontend/styles.css
+git commit -m "Add style.css"
+git checkout -b feature-upload origin/feature-upload
+git diff main feature-upload
+git checkout main
+git merge feature-upload
+git merge --continue
+
+
+
+
+
+
+
+
+git checkout -b documentation origin/documentation
+git rebase -i HEAD~4
+git checkout main
+git merge documentation
+git push
+git checkout documentation
+git push --force
+git checkout main
+
+
+ 
+
+git add git\ comment.txt
+git commit -m "add git comment.txt"
+git push
+
+
+
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%=) % git checkout -b feature-newFunc
+
+切换到一个新分支 'feature-newFunc'
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (feature-newFunc%) % git commit -m "Added diary entry for feature work"
+
+[feature-newFunc 4915bdb] Added diary entry for feature work
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (feature-newFunc%) % git commit -m "Added another diary entry for feature work"
+
+[feature-newFunc aa946cc] Added another diary entry for feature work
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (feature-newFunc%) % git rebase -i HEAD~2
+
+[分离头指针 d2cfcd9] Added diary entry for feature work
+ Date: Fri Nov 3 19:09:36 2023 +0800
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+成功变基并更新 refs/heads/feature-newFunc。
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (feature-newFunc%) % git checkout main
+切换到分支 'main'
+您的分支与上游分支 'origin/main' 一致。
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%=) % git merge feature-newFunc
+更新 bf1ad18..d2cfcd9
+Fast-forward
+ mydiary/diary.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git checkout -b experiment origin/experiment
+分支 'experiment' 设置为跟踪 'origin/experiment'。
+切换到一个新分支 'experiment'
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (experiment%=) % git log                                     
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (experiment%=) % git checkout main                           
+切换到分支 'main'
+您的分支领先 'origin/main' 共 1 个提交。
+  （使用 "git push" 来发布您的本地提交）
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git cherry-pick d58314c014e17c0f8091e4f715836e14815e443d          
+[main 8010cd7] Added new approach details.
+ Author: peri103 <yunruipei@163.com>
+ Date: Thu Nov 2 11:56:05 2023 +0800
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git push                                                
+枚举对象中: 13, 完成.
+对象计数中: 100% (13/13), 完成.
+使用 12 个线程进行压缩
+压缩对象中: 100% (6/6), 完成.
+写入对象中: 100% (8/8), 812 字节 | 812.00 KiB/s, 完成.
+总共 8（差异 2），复用 1（差异 0），包复用 0
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To github.com:AnkorTn/sjtu-cs7354.git
+   bf1ad18..8010cd7  main -> main
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%=) % git checkout -b dev origin/dev                          
+分支 'dev' 设置为跟踪 'origin/dev'。
+切换到一个新分支 'dev'
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (dev%=) % git log
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (dev%=) % git revert HEAD^^..HEAD
+[dev cebcc24] Revert "Mistakenly added irrelevant content"
+ 1 file changed, 1 deletion(-)
+[dev fc1fbae] Revert "Some content was added repeatedly"
+ 1 file changed, 1 deletion(-)
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (dev%>) % git log
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (dev%>) % git push
+枚举对象中: 11, 完成.
+对象计数中: 100% (11/11), 完成.
+使用 12 个线程进行压缩
+压缩对象中: 100% (4/4), 完成.
+写入对象中: 100% (8/8), 731 字节 | 731.00 KiB/s, 完成.
+总共 8（差异 4），复用 4（差异 2），包复用 0
+remote: Resolving deltas: 100% (4/4), completed with 2 local objects.
+To github.com:AnkorTn/sjtu-cs7354.git
+   7e98124..fc1fbae  dev -> dev
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (dev%=) % git checkout main             
+切换到分支 'main'
+您的分支与上游分支 'origin/main' 一致。
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%=) % git commit -m "Add style.css"
+[main 3bcb9d6] Add style.css
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git checkout -b feature-upload origin/feature-upload              
+分支 'feature-upload' 设置为跟踪 'origin/feature-upload'。
+切换到一个新分支 'feature-upload'
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (feature-upload%=) % git diff main feature-upload       
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (feature-upload%=) % git checkout main                                   
+切换到分支 'main'
+您的分支领先 'origin/main' 共 1 个提交。
+  （使用 "git push" 来发布您的本地提交）
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git merge feature-upload 
+自动合并 frontend/styles.css
+冲突（内容）：合并冲突于 frontend/styles.css
+自动合并失败，修正冲突然后提交修正的结果。
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main+%>) % git merge --continue    
+[main 13d8d9a] Merge branch 'feature-upload'
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git checkout -b documentation origin/documentation
+分支 'documentation' 设置为跟踪 'origin/documentation'。
+切换到一个新分支 'documentation'
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (documentation%=) % git rebase -i HEAD~4
+[分离头指针 99339bb] Add installation guide
+ Author: peri103 <yunruipei@163.com>
+ Date: Thu Nov 2 12:11:20 2023 +0800
+ 2 files changed, 7 insertions(+)
+ create mode 100644 documentation/INSTALL_GUIDE.md
+成功变基并更新 refs/heads/documentation。
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (documentation%<>) % git log             
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (documentation%<>) % git push
+To github.com:AnkorTn/sjtu-cs7354.git
+ ! [rejected]        documentation -> documentation (non-fast-forward)
+错误：无法推送一些引用到 'github.com:AnkorTn/sjtu-cs7354.git'
+提示：更新被拒绝，因为您当前分支的最新提交落后于其对应的远程分支。
+提示：再次推送前，先与远程变更合并（如 'git pull ...'）。详见
+提示：'git push --help' 中的 'Note about fast-forwards' 小节。
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (documentation%<>) % git checkout main                                 
+切换到分支 'main'
+您的分支领先 'origin/main' 共 4 个提交。
+  （使用 "git push" 来发布您的本地提交）
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git merge documentation          
+Merge made by the 'ort' strategy.
+ documentation/CONTRIBUTING_GUIDE.md | 5 +++++
+ documentation/INSTALL_GUIDE.md      | 5 +++++
+ documentation/PROJECT_OVERVIEW.md   | 2 ++
+ 3 files changed, 12 insertions(+)
+ create mode 100644 documentation/CONTRIBUTING_GUIDE.md
+ create mode 100644 documentation/INSTALL_GUIDE.md
+(base) ankortn@AnkorTndeMBP:~/Downloads/Master/OpenSource/sjtu-cs7354 (main%>) % git push               
+枚举对象中: 38, 完成.
+对象计数中: 100% (32/32), 完成.
+使用 12 个线程进行压缩
+压缩对象中: 100% (19/19), 完成.
+写入对象中: 100% (23/23), 2.42 KiB | 2.42 MiB/s, 完成.
+总共 23（差异 8），复用 7（差异 3），包复用 0
+remote: Resolving deltas: 100% (8/8), completed with 2 local objects.
+To github.com:AnkorTn/sjtu-cs7354.git
+   8010cd7..2350f25  main -> main
